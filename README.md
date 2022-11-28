@@ -1,2 +1,2 @@
 ## Stack
-Tailwindcss
+Tailwindcss, Redux Toolkit
