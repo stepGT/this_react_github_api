@@ -1,9 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDebounce } from '../hooks/debounce';
 import { useSearchUsersQuery } from '../store/github/github.api';
 
 const HomePage = () => {
   const [search, setSearch] = useState('');
+  const debounced = useDebounce(search);
   const { isLoading, isError, data } = useSearchUsersQuery('stepGT');
+  useEffect(() => {
+    console.log(debounced);
+  }, [debounced]);
   return (
     <div className="flex justify-center pt-10 mx-auto h-screen w-screen">
       {isError && <p className="text-center text-red-600">Error!</p>}
