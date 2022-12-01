@@ -5,7 +5,9 @@ import { useSearchUsersQuery } from '../store/github/github.api';
 const HomePage = () => {
   const [search, setSearch] = useState('');
   const debounced = useDebounce(search);
-  const { isLoading, isError, data } = useSearchUsersQuery('stepGT');
+  const { isLoading, isError, data } = useSearchUsersQuery(debounced, {
+    skip: debounced.length < 3,
+  });
   useEffect(() => {
     console.log(debounced);
   }, [debounced]);
