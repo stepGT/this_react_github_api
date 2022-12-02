@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Card from '../components/Card';
 import { useDebounce } from '../hooks/debounce';
 import { useLazyGetUserReposQuery, useSearchUsersQuery } from '../store/github/github.api';
 
@@ -49,7 +50,7 @@ const HomePage = () => {
         <div className="container">
           {isReposLoading && <p className="text-center">Repos loading...</p>}
           {reposData?.map((repo) => (
-            <p key={repo.id}>{repo.url}</p>
+            <Card key={repo.id} repo={repo} />
           ))}
         </div>
       </div>
