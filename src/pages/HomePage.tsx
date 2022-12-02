@@ -8,6 +8,7 @@ const HomePage = () => {
   const debounced = useDebounce(search);
   const { isLoading, isError, data } = useSearchUsersQuery(debounced, {
     skip: debounced.length < 3,
+    refetchOnFocus: true,
   });
   useEffect(() => {
     setDropdown(debounced.length > 3 && data?.length! > 0)
