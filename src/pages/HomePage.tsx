@@ -11,7 +11,7 @@ const HomePage = () => {
     skip: debounced.length < 3,
     refetchOnFocus: true,
   });
-  const [fetchRepos, { isLoading: isReposLoading, isError: isReposError, data: reposData }] =
+  const [fetchRepos, { isLoading: isReposLoading, data: reposData }] =
     useLazyGetUserReposQuery();
 
   const clickHandler = (user: string) => {

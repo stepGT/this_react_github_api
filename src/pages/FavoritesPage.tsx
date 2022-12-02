@@ -9,7 +9,7 @@ const FavoritesPage = () => {
       <ul className="list-none">
         {favourites.map((item) => (
           <li key={item}>
-            <a href={item} target="_blank">
+            <a rel="noreferrer" href={item} target="_blank">
               {item}
             </a>
           </li>
